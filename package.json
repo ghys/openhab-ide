@@ -1,0 +1,78 @@
+{
+  "private": true,
+  "name": "openhab-ide",
+  "version": "next",
+  "license": "EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0",
+  "theia": {
+    "frontend": {
+      "config": {
+        "applicationName": "openHAB IDE",
+        "preferences": {
+          "files.enableTrash": false,
+          "openhab.host": "localhost"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@theia/bulk-edit": "next",
+    "@theia/callhierarchy": "next",
+    "@theia/console": "next",
+    "@theia/core": "next",
+    "@theia/debug": "next",
+    "@theia/editor": "next",
+    "@theia/editor-preview": "next",
+    "@theia/file-search": "next",
+    "@theia/filesystem": "next",
+    "@theia/getting-started": "next",
+    "@theia/keymaps": "next",
+    "@theia/markers": "next",
+    "@theia/messages": "next",
+    "@theia/metrics": "next",
+    "@theia/mini-browser": "next",
+    "@theia/monaco": "next",
+    "@theia/navigator": "next",
+    "@theia/outline-view": "next",
+    "@theia/output": "next",
+    "@theia/plugin-dev": "next",
+    "@theia/plugin-ext": "next",
+    "@theia/plugin-ext-vscode": "next",
+    "@theia/plugin-metrics": "next",
+    "@theia/preferences": "next",
+    "@theia/preview": "next",
+    "@theia/process": "next",
+    "@theia/property-view": "next",
+    "@theia/scm": "next",
+    "@theia/scm-extra": "next",
+    "@theia/search-in-workspace": "next",
+    "@theia/task": "next",
+    "@theia/terminal": "next",
+    "@theia/timeline": "next",
+    "@theia/typehierarchy": "next",
+    "@theia/userstorage": "next",
+    "@theia/variable-resolver": "next",
+    "@theia/vsx-registry": "next",
+    "@theia/workspace": "next"
+  },
+  "scripts": {
+    "clean": "theia clean",
+    "build": "theia build --mode development",
+    "watch": "yarn build --watch",
+    "start": "theia start --plugins=local-dir:plugins",
+    "start:debug": "yarn start --log-level=debug",
+    "test": "theia test . --plugins=local-dir:../../plugins --test-spec=../api-tests/**/*.spec.js",
+    "test:debug": "yarn test --test-inspect",
+    "coverage": "yarn test --test-coverage && yarn coverage:report",
+    "coverage:report": "nyc report --reporter=html",
+    "coverage:clean": "rimraf .nyc_output && rimraf coverage"
+  },
+  "devDependencies": {
+    "@theia/cli": "next"
+  },
+  "theiaPluginsDir": "plugins",
+  "theiaPlugins": {
+    "vscode-builtin-javascript": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/javascript-1.39.1-prel.vsix",
+    "vscode-builtin-json": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/json-1.39.1-prel.vsix",
+    "openhab": "https://github.com/openhab/openhab-vscode/releases/download/v0.8.1/openhab-0.8.1.vsix"
+  }
+}
